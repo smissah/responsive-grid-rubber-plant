@@ -1,0 +1,620 @@
+*, ::before, ::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+body {
+  background: #f1f1f1;
+  background-color: #fdfdfd;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 1fr 2.5fr 1fr 0.5fr;
+      grid-template-columns: 0.5fr 1fr 2.5fr 1fr 0.5fr;
+  -ms-grid-rows: .5fr 2.5fr 1fr 1.5fr 1fr;
+      grid-template-rows: .5fr 2.5fr 1fr 1.5fr 1fr;
+      grid-template-areas: "showcase showcase header header header" "showcase showcase text-two image-three image-three" "showcase showcase image-two sign-up sign-up" "image-one image-one image-two sign-up sign-up" "image-one image-one image-two social-links social-links";
+  gap: 1.0rem;
+  height: 90vh;
+  width: 90vw;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: #f1f1f1;
+}
+
+.container .top-header {
+  width: 100%;
+  background-color: #b8b8b8;
+  height: 80px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+  z-index: -3;
+  position: relative;
+}
+
+.container .home-nav {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: showcase;
+  width: 100%;
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  height: auto;
+  display: inline-block;
+}
+
+.container .home-nav ul li {
+  float: left;
+  margin-right: 30px;
+}
+
+.container .home-nav a {
+  color: #f1f1f1;
+  font-family: sans-serif;
+  font-size: .8rem;
+}
+
+.container .home-nav a:hover {
+  color: red;
+  -webkit-transition: color .2s ease-in;
+  transition: color .2s ease-in;
+  -webkit-text-decoration: underline .5px white;
+          text-decoration: underline .5px white;
+}
+
+.container .logo {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: showcase;
+  display: block;
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+  color: #464646;
+  font-size: 180%;
+  font-weight: bolder;
+  text-align: center;
+  border: double 5px #464646;
+  -webkit-transition: font-size 1s ease-in-out border 1s ease-in-out;
+  transition: font-size 1s ease-in-out border 1s ease-in-out;
+  white-space: nowrap;
+}
+
+.container .logo:hover {
+  color: #455e45;
+}
+
+.container .showcase {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: showcase;
+  position: relative;
+  background: #455e45;
+  color: #f1f1f1;
+  padding: 1rem 1.2rem;
+}
+
+.container .showcase::before {
+  content: '';
+  background-color: #464646;
+  width: 50%;
+  height: 1%;
+  display: block;
+  z-index: 5;
+  position: relative;
+  top: 0px;
+  left: 0;
+}
+
+.container .showcase h1 {
+  margin-top: 5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+}
+
+.container .showcase h1::after {
+  content: '';
+  height: 3%;
+  width: 100%;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  border-bottom: solid 5px red;
+  display: block;
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+.container .showcase h1:hover::after {
+  content: '';
+  height: 3%;
+  width: 80%;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  display: block;
+}
+
+.container .showcase h1 ~ p {
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.4rem;
+}
+
+.container .image-one {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: image-one;
+  background-color: #e0e0af;
+  background: url(../images/rggg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: center;
+}
+
+.container .check-div {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 4/1/6/3;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.container .check-div .check-one {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 4/1/5/3;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: none;
+  opacity: 0;
+}
+
+.container .check-div .check-one:checked + body {
+  background: pink;
+}
+
+.container .text-two {
+  background-color: #fdd8a2;
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: text-two;
+  padding: 3rem;
+  text-align: center;
+  color: #1b1b1b;
+  font-family: sans-serif;
+  line-height: 1.3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.container .text-two p {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.4rem;
+  width: 100%;
+  position: absolute;
+}
+
+.container .text-two p .defineMe {
+  color: rebeccapurple;
+  position: relative;
+}
+
+.container .text-two p .defineMe::after {
+  content: attr(data-potato);
+  color: red;
+  width: 100px;
+  height: 20px;
+  background-color: #1b1b1b;
+  display: block;
+  position: absolute;
+  left: 0;
+  z-index: 5;
+  bottom: 0;
+  -webkit-transform: translateY(0) scale(0);
+          transform: translateY(0) scale(0);
+  white-space: nowrap;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.container .text-two p .defineMe:hover::after {
+  opacity: .8;
+  border-radius: 25px;
+  position: absolute;
+  -webkit-transform: translateY(-1.5rem);
+          transform: translateY(-1.5rem);
+}
+
+.container .image-two {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 3;
+  grid-area: image-two;
+  background-color: indianred;
+  background: url(../images/blur-branches-close-up-environment-213727.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 0;
+}
+
+.container .image-two::after {
+  content: '';
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: block;
+  border-left: solid white 5px;
+  border-right: solid white 5px;
+  height: 0%;
+  width: 95%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+.container .image-two:hover::after {
+  content: '';
+  display: block;
+  border-left: double white 5px;
+  border-right: double white 5px;
+  height: 95%;
+  width: 95%;
+}
+
+.container .image-three {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: image-three;
+  background-color: indianred;
+  background: url(../images/closeup-photo-of-rubber-plant-993018.jpg);
+  background-size: cover;
+  position: relative;
+  background-position: center;
+}
+
+.container .sign-up {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: sign-up;
+  background: #b8b8b8;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.container .sign-up h3 {
+  margin-bottom: 1.2rem;
+}
+
+.container .sign-up p {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.4rem;
+}
+
+.container .sign-up input[type='button'] {
+  background-color: #455e45;
+  padding: .5rem 1rem;
+  font-family: sans-serif;
+  color: white;
+  border: none;
+  position: relative;
+  left: 0;
+}
+
+.container .sign-up input[type='button']:hover {
+  color: red;
+}
+
+.container .social-links {
+  -ms-grid-row: 5;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: social-links;
+  background-color: #455e45;
+  position: relative;
+  width: 100%;
+}
+
+.container .social-links .icons {
+  margin: 1rem;
+  position: absolute;
+}
+
+.container .social-links .icons i {
+  color: white;
+  font-size: 1.3rem;
+  -webkit-transition: color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
+  display: block;
+  margin: .25rem;
+}
+
+.container .social-links .icons i:hover {
+  color: red;
+}
+
+.container .social-links p {
+  color: white;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.4rem;
+  position: absolute;
+  left: 3rem;
+  margin: 1rem;
+}
+
+.container .social-links p strong:hover {
+  color: red;
+}
+
+@media only screen and (max-width: 995px) {
+  body {
+    background: #e0e0af;
+  }
+  .container {
+    -webkit-transition: all .75s ease-in-out;
+    transition: all .75s ease-in-out;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr .5fr;
+        grid-template-columns: 1fr 1fr .5fr;
+    -ms-grid-rows: .5fr 3fr 1fr 1.5fr 1fr 1fr 1fr 1fr .75fr;
+        grid-template-rows: .5fr 3fr 1fr 1.5fr 1fr 1fr 1fr 1fr .75fr;
+        grid-template-areas: "header header header" "image-two image-two image-two" "image-two image-two image-two" "showcase showcase image-three" "showcase showcase image-three" "text-two  image-one image-one" "text-two  image-one image-one" "sign-up image-one image-one" "sign-up social-links social-links";
+    gap: .20rem;
+    height: 100%;
+    width: 95vw;
+    margin: 0px auto;
+  }
+  .container .home-nav {
+    visibility: hidden;
+  }
+  .container .top-header {
+    width: 100%;
+    background-color: rgba(247, 242, 242, 0.925);
+    height: 80px;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: header;
+    z-index: -3;
+    position: relative;
+  }
+  .container .top-header .logo {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: showcase;
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 2.5rem;
+    width: 100%;
+    color: #464646;
+    font-size: 180%;
+    font-weight: bolder;
+    text-align: center;
+    border: double 5px #464646;
+    -webkit-transition: font-size 1s ease-in-out border 1s ease-in-out;
+    transition: font-size 1s ease-in-out border 1s ease-in-out;
+    white-space: nowrap;
+  }
+  .container .showcase {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: showcase;
+    position: relative;
+    background: #455e45;
+    color: #f1f1f1;
+    padding: 1rem 1.2rem;
+  }
+  .container .showcase h1 {
+    margin-top: .5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+    line-height: 1.5rem;
+    position: relative;
+  }
+  .container .showcase h1::after {
+    content: '';
+    height: 3%;
+    width: 100%;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    border-bottom: solid 2px red;
+    display: block;
+    position: absolute;
+    bottom: -.25rem;
+    left: 0;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+  }
+  .container .showcase h1:hover::after {
+    content: '';
+    height: 3%;
+    width: 50%;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    display: block;
+  }
+  .container .showcase h1 ~ p {
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: 400;
+    line-height: 1.4rem;
+    line-height: .75rem;
+    font-size: 75%;
+  }
+  .container .text-two {
+    background-color: #fdd8a2;
+    -ms-grid-row: 6;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    grid-area: text-two;
+    padding: 3rem;
+    text-align: center;
+    color: #1b1b1b;
+    font-family: sans-serif;
+    line-height: 1.3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .container .text-two p {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: 400;
+    line-height: 1.4rem;
+    font-size: 11px;
+    line-height: 1rem;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  .sign-up {
+    -ms-grid-row: 8;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    grid-area: sign-up;
+    background: #b8b8b8;
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    color: white;
+    padding: 2rem 1rem;
+  }
+  .sign-up h3 {
+    position: absolute;
+    margin-top: -20px;
+    margin-bottom: .5rem;
+    font-size: 1rem;
+  }
+  .sign-up p {
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: 400;
+    line-height: 1.4rem;
+    margin-bottom: .25rem;
+  }
+  .sign-up input[type='button'] {
+    background-color: #455e45;
+    padding: .25rem .5rem;
+    font-family: sans-serif;
+    font-size: 11px;
+    width: 50%;
+    border: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .sign-up input[type='button']:hover {
+    color: red;
+  }
+  .sign-up .social-links {
+    -ms-grid-row: 9;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-area: social-links;
+    background-color: #455e45;
+    position: relative;
+    width: 100%;
+  }
+  .sign-up .social-links .icons {
+    margin: .5rem;
+    position: absolute;
+    display: inline-block;
+    width: 10%;
+    height: 10%;
+  }
+  .sign-up .social-links .icons i {
+    color: white;
+    font-size: .5rem;
+    -webkit-transition: color 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out;
+    display: inline block;
+    margin: 0rem;
+  }
+  .sign-up .social-links .icons i:hover {
+    color: red;
+  }
+  .sign-up .social-links p {
+    color: white;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: 400;
+    line-height: 1.4rem;
+    position: absolute;
+    left: 3rem;
+    margin: 1rem;
+  }
+  .sign-up .social-links p strong:hover {
+    color: red;
+  }
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,631 @@
+
+@import './style';
+
+
+
+body {
+    background: $clr-white;
+    background-color: rgb(253, 253, 253);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 2.5fr 1fr 0.5fr;
+    grid-template-rows: .5fr 2.5fr 1fr 1.5fr 1fr;
+    grid-template-areas:
+                        "showcase showcase header header header"
+                        "showcase showcase text-two image-three image-three"
+                        "showcase showcase image-two sign-up sign-up"
+                        "image-one image-one image-two sign-up sign-up"
+                        "image-one image-one image-two social-links social-links";
+    gap: 1.0rem;
+    height: 90vh;
+    width: 90vw;
+    // min-width: 1046px;
+    // max-width: 980px;
+    // padding: 2rem;
+    // margin: 2rem 2rem;
+    @include centerMe;
+    position: absolute;
+    background-color: $clr-white;
+
+    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.294);
+
+        .top-header {
+            width: 100%;
+            background-color:$clr-grey;
+            height: 80px;
+            grid-area: header;
+            z-index: -3;
+            position: relative;        
+        }
+
+
+        .home-nav {
+            grid-area: showcase;
+            background: red;
+            width: 100%;
+            position: absolute;
+            top: 2rem;
+            left: 1rem;
+            height: auto;  
+       
+            display: inline-block;
+                
+        
+
+    
+
+                ul li {
+                    float: left;
+                    margin-right: 30px;
+                    // @include centerMe;
+                 
+                }
+
+            
+                a {
+                    
+                    color: $clr-white;
+                    font-family: sans-serif;
+                    font-size: .8rem;
+
+                    &:hover {
+                        color: red;
+                        transition: color .2s ease-in;
+                        text-decoration: underline .5px white;
+                    }
+                }
+        }
+
+        .logo{
+            grid-area: showcase;
+            display: block;
+            position: absolute;
+            // left: 25%;
+            top: 1rem;
+            //2rem cause 1rem for padding applied to the whole container
+            width: 100%;
+            color: $clr-drkGrey;
+            // font-size: 2rem;
+            font-size: 180%;
+            font-weight: bolder;
+            text-align: center;
+            border: double 5px $clr-drkGrey;
+            // padding: .25rem .5rem;
+            transition: font-size 1s ease-in-out
+                        border 1s ease-in-out;
+            white-space: nowrap;
+            
+            
+
+
+                    &:hover {
+                        color: $clr-ltegreen;
+                    }
+        }
+
+        .showcase {
+            grid-area: showcase;
+            position: relative;
+            background: $clr-ltegreen;
+            color: $clr-white;
+            padding: 1rem 1.2rem;
+            
+            
+            
+
+          
+            &::before{
+                content: '';
+                // grid-area: 1/3/2/4;
+                background-color:$clr-drkGrey;
+                width: 50%;
+                height: 1%;
+                display: block;
+                z-index: 5;
+                position: relative;
+                top: 0px;
+                left: 0;
+                }
+                    
+
+            h1 {
+                margin-top: 5rem;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+               
+                // justify-content: center;
+                margin-bottom: 1.5rem;
+                line-height: 1.5rem;
+                // letter-spacing: 1.5rem;
+                position: relative;
+
+
+                        
+            &::after{
+                content: '';
+                height: 3%;
+                width: 100%;
+                transform: scaleX(0);
+                // background-color: red;
+                border-bottom: solid 5px red;
+                display: block;
+                // z-index: -1;
+                position: absolute;
+                bottom: -1rem;
+                left: 0;
+                transition: all .25s ease-in-out;
+
+
+            
+            }
+
+            
+            &:hover::after {
+                content: '';
+                height: 3%;
+                width: 80%;
+                transform: scaleX(1);
+                display: block;
+                }
+            }
+
+            h1 ~ p {
+                @include paraStyle;
+            }
+        }
+
+        .image-one {
+            grid-area: image-one;
+            background-color: $clr-cream;
+            background: url(../images/rggg.jpg);
+            background-repeat: no-repeat;
+            // background-position-y: -100px;
+            // background-size: 250%;
+            background-size: cover;
+            position: relative;
+            background-position: center;       
+        //   background-position-y: 0%; 
+            
+        }
+
+        .check-div {
+            grid-area: 4/1/6/3;
+            // background-color: red;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            // opacity: 0;
+
+                    .check-one {
+                        grid-area: 4/1/5/3;
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        border: none;
+                            opacity: 0;
+
+                        &:checked + body {
+                            background: pink;
+                            }
+                    }
+
+                    
+        }
+
+        .text-two {
+            background-color: $clr-peach;
+            grid-area: text-two;
+            padding: 3rem;
+            text-align: center;
+            color: $clr-blk;
+            font-family: sans-serif;
+            // justify-content: center;
+            line-height: 1.3rem;
+            // @include centerMe;
+            position: relative;
+            overflow: hidden;
+
+
+
+                p {
+                    @include centerMe;
+                    @include paraStyle;
+                    // text-align: center;
+                    width: 100%;
+                    // line-height: 1.3rem;
+                    position: absolute;
+                    // overflow: hidden;
+
+                        .defineMe {
+                            color: rebeccapurple;
+                            position: relative;
+
+                            &::after {
+                                content: attr(data-potato);
+                                    @include linkAfter;
+
+                            }
+
+                            @include linkAfterHover;
+                        }
+                }
+        }
+
+        .image-two{
+            grid-area: image-two;
+            background-color: indianred;
+            background: url(../images/blur-branches-close-up-environment-213727.jpg) no-repeat;
+            // background-size: 300%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            top: 0;
+
+
+            &::after {
+                content: '';
+                @include centerMe;
+                display: block;
+                border-left: solid white 5px;
+                border-right: solid white 5px;
+                height: 0%;
+                width: 95%;
+                align-content: center;
+                
+                // flex: none;
+
+                transition: all .25s ease-in-out;
+
+            }
+
+            &:hover::after {
+                content: '';
+                display: block;
+                border-left: double white 5px;
+                border-right: double white 5px;
+                height: 95%;
+                width: 95%;               
+            }
+            
+        }
+
+        .image-three {
+            grid-area: image-three;
+            background-color: indianred;
+            background: url(../images/closeup-photo-of-rubber-plant-993018.jpg);
+            background-size: cover;
+            position: relative;
+            background-position: center;
+        }
+
+        .sign-up{
+            grid-area: sign-up;
+            background: $clr-grey;
+            position: relative;
+            box-sizing: border-box;
+            color: white;
+            padding: 2rem 1rem;
+
+                h3 {
+                    margin-bottom: 1.2rem;
+                }
+
+                p{
+                margin-bottom: 1rem;
+                @include paraStyle;
+                }
+
+                input[type='button'] {
+                    background-color: $clr-ltegreen;
+                    padding: .5rem 1rem;
+                    font-family: sans-serif;
+                    color: white;
+                    border: none;
+                    position: relative;
+                    left: 0;
+
+                    &:hover {
+                        color: red;
+                    }
+                }
+        }
+
+        .social-links {
+            grid-area: social-links;
+            background-color: $clr-ltegreen;
+            position: relative;
+            width: 100%;
+            
+
+
+
+                .icons{
+                    margin: 1rem;
+                    position: absolute;
+             
+             
+                    
+
+
+                            i{
+                                color: white;
+                                font-size: 1.3rem;
+                                transition: color 0.15s ease-in-out;
+                                display:block;
+                                margin: .25rem;
+                
+                                &:hover{
+                                    color: red;
+                                }
+                            }
+                }
+
+
+                p{
+                    color: white;
+                    @include paraStyle;
+                    // display: block;
+                    position: absolute;
+                    left: 3rem;
+                    margin: 1rem;
+
+                    strong {
+                        // color: white;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
+        }
+}
+
+
+        /// ------------------MEDIA QUERIES------------------ ///
+           
+@media only screen and (max-width:995px){
+    
+
+
+    body{
+        background: $clr-cream;
+    }
+
+
+        .container {
+            transition: all .75s ease-in-out;
+                
+                display: grid;
+                grid-template-columns: 1fr 1fr .5fr;
+                grid-template-rows: .5fr 3fr 1fr 1.5fr 1fr 1fr 1fr 1fr .75fr;
+                grid-template-areas:
+                                    "header header header"
+                                    "image-two image-two image-two"
+                                    "image-two image-two image-two"
+                                    "showcase showcase image-three"
+                                    "showcase showcase image-three"
+                                    "text-two  image-one image-one"
+                                    "text-two  image-one image-one"
+                                    "sign-up image-one image-one"
+                                    "sign-up social-links social-links";
+                gap: .20rem;
+                height: 100%;
+                width: 95vw;
+                margin: 0px auto;
+
+
+            .home-nav {
+                visibility: hidden;
+            }
+
+            .top-header {
+                width: 100%;
+                background-color: rgba(247, 242, 242, 0.925);
+                height: 80px;
+                grid-area: header;
+                z-index: -3;
+                position: relative;
+    
+                .logo{
+                    grid-area: showcase;
+                    display: block;
+                     @include centerMe;
+                    // left: 25%;
+                    top: 2.5rem;
+                    //2rem cause 1rem for padding applied to the whole container
+                    width: 100%;
+                    color: $clr-drkGrey;
+                    // font-size: 2rem;
+                    font-size: 180%;
+                    font-weight: bolder;
+                    text-align: center;
+                    border: double 5px $clr-drkGrey;
+                    // padding: .25rem .5rem;
+                    transition: font-size 1s ease-in-out
+                                border 1s ease-in-out;
+                    white-space: nowrap;
+                }
+            }
+          
+
+            .showcase {
+                grid-area: showcase;
+                position: relative;
+                background: $clr-ltegreen;
+                color: $clr-white;
+                padding: 1rem 1.2rem;
+                
+                
+                        
+
+                h1 {
+                    margin-top: .5rem;
+                    font-size: 1.5rem;
+                    text-transform: uppercase;
+                
+                    // justify-content: center;
+                    margin-bottom: .5rem;
+                    line-height: 1.5rem;
+                    // letter-spacing: 1.5rem;
+                    position: relative;
+
+
+                    &::after{
+                        content: '';
+                        height: 3%;
+                        width: 100%;
+                        transform: scaleX(0);
+                        // background-color: red;
+                        border-bottom: solid 2px red;
+                        display: block;
+                        // z-index: -1;
+                        position: absolute;
+                        bottom: -.25rem;
+                        left: 0;
+                        transition: all .25s ease-in-out;
+        
+        
+                    
+                    }
+        
+                    
+                    &:hover::after {
+                        content: '';
+                        height: 3%;
+                        width: 50%;
+                        transform: scaleX(1);
+                        display: block;
+                        }
+                }
+
+                h1 ~ p {
+                    @include paraStyle;
+                    line-height: .75rem;
+                    font-size: 75%;
+                }
+            }
+
+
+            .text-two {
+                background-color: $clr-peach;
+                grid-area: text-two;
+                padding: 3rem;
+                text-align: center;
+                color: $clr-blk;
+                font-family: sans-serif;
+                // justify-content: center;
+                line-height: 1.3rem;
+                // @include centerMe;
+                position: relative;
+                overflow: scroll;
+    
+    
+    
+                    p {
+                        @include centerMe;
+                        @include paraStyle;
+                        font-size: 11px;
+                        line-height: 1rem;
+                        // text-align: center;
+                        width: 100%;
+                        // line-height: 1.3rem;
+                        position: absolute;
+                        overflow: hidden;
+                        padding: 1rem;
+    
+                    }
+            }
+        }
+
+
+        .sign-up{
+            grid-area: sign-up;
+            background: $clr-grey;
+            position: relative;
+            box-sizing: border-box;
+            color: white;
+            padding: 2rem 1rem;
+
+                h3 {
+                    position: absolute;
+                    margin-top: -20px;
+                    margin-bottom: .5rem;
+                    font-size: 1rem;
+                }
+
+                p{
+                @include paraStyle;
+                margin-bottom: .25rem;
+
+                }
+
+                input[type='button'] {
+                    background-color: $clr-ltegreen;
+                    padding: .25rem .5rem;
+                    font-family: sans-serif;
+                    font-size: 11px;
+                    width: 50%;
+                    border: none;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+
+                    &:hover {
+                        color: red;
+                    }
+                }
+
+
+
+
+
+        .social-links {
+            grid-area: social-links;
+            background-color: $clr-ltegreen;
+            position: relative;
+            width: 100%;
+            
+
+
+
+                .icons{
+                    margin: .5rem;
+                    position: absolute;
+                    display:block;
+                    // float: left;
+                    width: 100%;
+                    height: 10%;
+                
+                
+                            i{
+                                color: white;
+                                font-size: .5rem;
+                                transition: color 0.15s ease-in-out;
+                                display:inline block;
+                                margin: 0rem;            
+                                &:hover{
+                                    color: red;
+                                }
+                            }
+                }
+
+
+                p{
+                    color: white;
+                    @include paraStyle;
+                    // display: block;
+                    position: absolute;
+                    left: 3rem;
+                    margin: 1rem;
+
+                    strong {
+                        // color: white;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
+        }
+}
+}

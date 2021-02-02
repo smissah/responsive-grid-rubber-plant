@@ -1,0 +1,103 @@
+  
+  
+
+
+//SETUP
+
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+
+//COLOURS
+
+
+$clr-green: rgb(30, 51, 30);
+$clr-ltegreen: rgb(69, 94, 69);
+
+$clr-white: rgb(241, 241, 241);
+$clr-cream: rgb(224, 224, 175);
+$clr-peach: #fdd8a2;
+
+$clr-grey: rgb(184, 184, 184);
+$clr-drkGrey:  rgb(70, 70, 70);
+$clr-blk: rgb(27, 27, 27);
+
+
+
+
+
+
+
+                    //POSITIONING
+
+@mixin centerMe {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+                    //TEXT STYLING
+
+@mixin paraStyle {
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: 400;    
+    line-height: 1.4rem;
+
+   
+}
+
+                    //How to make hover over links
+
+
+
+
+@mixin linkAfter {
+
+    //dont forget to create content: 'data(data-personal name)'
+    //I know theres an easier way to do the above with a formula
+    color: red;
+    width: 100px;
+    height: 20px;
+    background-color: $clr-blk;
+    display: block;
+    position: absolute;
+    
+    // bottom: 2.5rem;
+    left: 0;
+    z-index: 5;
+    bottom:0;
+    // opacity: 0;
+    transform: translateY(0) scale(0);
+    white-space: nowrap;
+   transition: all .5s ease-in-out;
+}
+
+
+
+
+@mixin linkAfterHover {
+    //place me after the (&)::after tag curley braces!!
+    &:hover::after{
+        // bottom: 2.5rem;
+        opacity: .8;
+        border-radius: 25px;
+        position: absolute;
+        transform: translateY(-1.5rem)
+        // scale(1);
+
+
+    }
+}
+
+
+

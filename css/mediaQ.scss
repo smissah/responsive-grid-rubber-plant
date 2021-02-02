@@ -1,0 +1,23 @@
+@mixin tabletLayout {
+    
+    @media (max-width: 1088px){
+
+
+        body{
+            background-color: blue;
+        }
+
+
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            // grid-template-columns: 1fr;
+            // grid-template-rows: .5fr 2.5fr 1fr 1.5fr 1fr;
+            height: 200vh;
+            width: 100%;
+            margin: 0 10%;
+            }
+        }
+    }
+
